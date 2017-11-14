@@ -1,1 +1,1 @@
-"# Udacity Mini Projects" 
+# Udacity Mini Projects
