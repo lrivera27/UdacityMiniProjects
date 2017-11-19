@@ -29,6 +29,34 @@ from sklearn.metrics import accuracy_score
 
 clf = SVC(kernel='linear')
 
+### Full Data set ###
+print "====================================="
+print "Complete Data Set"
+print "====================================="
+t0 = time()
+clf.fit(features_train, labels_train)
+temp = time() - t0
+t0 = temp
+print "Training Time: ", round(t0, 3), "s"
+
+t1 = time()
+prediction = clf.predict(features_test)
+temp = time() - t1
+t1 = temp
+print "Prediction Time: ", round(t1, 3), "s"
+
+print "Total Time: ", round(t0 + t1, 3), "s"
+
+score = accuracy_score(labels_test, prediction)
+print "The accuracy is: ", round(score * 100, 3), "%"
+
+### One percent of the Data set ###
+print "====================================="
+print "1% of the Data Set"
+print "====================================="
+features_train = features_train[:len(features_train)/100] 
+labels_train = labels_train[:len(labels_train)/100] 
+
 t0 = time()
 clf.fit(features_train, labels_train)
 temp = time() - t0
@@ -48,3 +76,4 @@ print "The accuracy is: ", round(score * 100, 3), "%"
 #########################################################
 
 
+ 
